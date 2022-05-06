@@ -19,28 +19,28 @@
 ## Table of Contents
 
 - Problem Setting
-- Problem Definition..........................................................................................................................
+- Problem Definition
 - Data Source
 - Data Description
 - Data Collection
 - Data Processing
 - Data Exploration
-   - Data Statistics..............................................................................................................................
+   - Data Statistics
    - Data Distributions
 - Model Exploration and Model Selection
 - Implementation of Selected Models
-   - 5 - Fold Cross-Validation..............................................................................................................
-   - Random Forest Model...............................................................................................................
+   - 5 - Fold Cross-Validation
+   - Random Forest Model
    - Feature Importance
-   - Principal Component Analysis..................................................................................................
+   - Principal Component Analysis
    - Hyperparameter Tuning
    - Random Search
    - Grid Search
 - Performance Evaluation and Interpretation
    - Precision
-   - Recall (Sensitivity)....................................................................................................................
-   - ROC Curve................................................................................................................................
-- Project Results...............................................................................................................................
+   - Recall (Sensitivity)
+   - ROC Curve
+- Project Results
 - Impact of the Project Outcomes
 
 
@@ -191,7 +191,7 @@ From table 1, the models are divided into two groups. Models that have a score l
 
 ## Implementation of Selected Models
 
-### 5 - Fold Cross-Validation..............................................................................................................
+### 5 - Fold Cross-Validation
 
 In this step, we use cross-validation to observe the performance of the selected models. We use 5 - fold cross-validation, where the data is divided into 5 folds and 4 are used for training and the other one is used as the validation set. Each time 1 of the folds are used as the validation and therefore the model is fitted 5 times.
 
@@ -217,7 +217,7 @@ Table 2 : 5 - Folds Cross-Validation Scores
 
 From the results of the cross-validation, we choose the **Random Forest Classifier** as our final model.
 
-### Random Forest Model...............................................................................................................
+### Random Forest Model
 
 We first train the model on 80% training data (as we have 34000 rows, 80% training is enough).
 
@@ -351,11 +351,11 @@ Table 7 : Classification Report
 
 It is the number of correctly identified members of a class divided by all the times the model predicted that class. In the case of “hits”, the precision score would be the number of correctly identified “hits” divided by the total number of times the classifier predicted “hits,” rightly or wrongly. This value is around 73%, meaning that out of all the songs which are predicted as a hit song by the model, 73% of them are hit songs.
 
-### Recall (Sensitivity)....................................................................................................................
+### Recall (Sensitivity)
 
 It is the number of members of a class that the classifier identified correctly divided by the total number of members in that class. For “hits”, this would be the number of actual “hits” that the classifier correctly identified as such. This value is 81%, meaning that out of all the hit songs, 81% are correctly classified as hit songs.
 
-### ROC Curve................................................................................................................................
+### ROC Curve
 
 ```
 Figure 9 : ROC Curve
@@ -363,7 +363,7 @@ Figure 9 : ROC Curve
 
 The ROC Curve plots the sensitivity based on 1-specificity for 100 different cutoffs. Here the area under the curve is 0. 81 which shows that the model is performing well. The random model has an area of 0. 5 and the best classifier has an area of 1.
 
-## Project Results...............................................................................................................................
+## Project Results
 
 In the original dataset consisting of 40k records, there were multiple outliers in the initial 19 features. The features with the most outliers are removed. The remaining dataset is then split into a train test split of 80 – 20. The classification models such as Logistic Regression, K-Nearest Neighbors, Decision Tree, Support Vector Machine (Linear Kernel), Support Vector Machine (RBF Kernel), Neural Network, Random Forest, and Gradient Boosting are considered. The results show that the Random Forest model is the best classification model for our dataset. It was able to classify hit songs and non-hit songs with an accuracy of **73.8 9 %.**
 
