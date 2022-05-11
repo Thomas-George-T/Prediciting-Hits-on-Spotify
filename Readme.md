@@ -19,29 +19,29 @@
 ## Table of Contents
 
 - [Problem Setting](#problem-setting)
-- Problem Definition
-- Data Source
-- Data Description
-- Data Collection
-- Data Processing
-- Data Exploration
-   - Data Statistics
-   - Data Distributions
-- Model Exploration and Model Selection
-- Implementation of Selected Models
-   - 5 - Fold Cross-Validation
-   - Random Forest Model
-   - Feature Importance
-   - Principal Component Analysis
-   - Hyperparameter Tuning
-   - Random Search
-   - Grid Search
-- Performance Evaluation and Interpretation
-   - Precision
-   - Recall (Sensitivity)
-   - ROC Curve
-- Project Results
-- Impact of the Project Outcomes
+- [Problem Definition](#problem-definition)
+- [Data Source](#data-source)
+- [Data Description](#data-description)
+- [Data Collection](#data-collection)
+- [Data Processing](#data-processing)
+- [Data Exploration](#data-exploration)
+   - [Data Statistics](#data-statistics)
+   - [Data Distributions](#data-distributions)
+- [Model Exploration and Model Selection](#model-exploration-and-model-selection)
+- [Implementation of Selected Models](#implementation-of-selected-models)
+   - [5 - Fold Cross-Validation](#5---fold-cross-validation)
+   - [Random Forest Model](#random-forest-model)
+   - [Feature Importance](#feature-importance)
+   - [Principal Component Analysis](#principal-component--analysis)
+   - [Hyperparameter Tuning](#hyperparameter-tuning)
+   - [Random Search](#random-search)
+   - [Grid Search](#grid-search)
+- [Performance Evaluation and Interpretation](#performance-evaluation-and-interpretation)
+   - [Precision](#precision)
+   - [Recall (Sensitivity)](#recall-sensitivity)
+   - [ROC Curve](#roc-curve)
+- [Project Results](#project-results)
+- [Impact of the Project Outcomes](#impact-of-the-project-outcomes)
 
 
 ## Problem Setting
