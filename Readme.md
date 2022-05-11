@@ -72,9 +72,15 @@ This dataset consists of 41,106 songs with 19 attributes from 6 different decade
 Other attributes of the dataset are tracks, artist, Uri, danceability, energy, key, loudness, mode, speechiness, acousticness, instrumentalness, liveness, valence, tempo, duration, etc.
 
 
-```
-Figure 1 : Data Sample with Descriptions
-```
+<p align="center">  
+    <br>
+	<a href="#">
+        <img src="assets/Picture1.png"> 
+  </a>		
+    <br>
+	Figure 1 : Data Sample with Descriptions
+</p>
+
 ## Data Collection
 
 We downloaded and extracted the 6 CSV files corresponding to the data of each of the decades and then merged them into a single dataframe.
@@ -99,33 +105,54 @@ From the statistics, we can see that almost all the values for the predictor tim
 
 ### Data Distributions
 
-```
 In this part first, we create a boxplot to look for outliers and see the distribution of all the predictors.
-```
 
-```
-Figure 2 : Distribution of Scaled Predictors with outliers
-```
+<p align="center">  
+    <br>
+	<a href="#">
+        <img src="assets/Picture2.png"> 
+  </a>		
+    <br>
+	Figure 2 : Distribution of Scaled Predictors with outliers
+</p>
+
 There are many outliers in the data in predictors such as instrumentalness and Spechiness. They have 8920, and 5088 outliers respectively, therefore we remove these two predictors completely and after that remove all the observations which have an outlier.
 
 After removing the outliers, we have 33401 songs and 12 predictors for building the model.
 
-```
-Figure 3 : Distribution of the Scaled Predictors after removing the outliers
-```
+<p align="center">  
+    <br>
+	<a href="#">
+        <img src="assets/Picture3.png"> 
+  </a>		
+    <br>
+	Figure 3 : Distribution of the Scaled Predictors after removing the outliers
+</p>
+
 This boxplot illustrates the distribution of the predictors, however, as our goal is to build a classification model, exploring the distribution of the predictors by the target variable will be much more efficient.
 
-
-_Figure 4 : Side by side boxplots by target variable_
-
+<p align="center">  
+    <br>
+	<a href="#">
+        <img src="assets/Picture4.png"> 
+  </a>		
+    <br>
+	Figure 4 : Side by side boxplots by target variable_	
+</p>
 
 From figure 4, the predictor’s danceability, energy, loudness, acousticness, duration, liveness, sections, and valence have a different distribution amongst hit songs and other songs. Hence, they can be considered good predictors.
 
 The total number of Songs after removing the outliers is 33401. We count the number of hit songs and other songs to find out if we need oversampling.
 
-```
-Figure 5 : Count of hit songs and other songs
-```
+<p align="center">  
+    <br>
+	<a href="#">
+        <img src="assets/Picture5.png"> 
+  </a>		
+    <br>
+	Figure 5 : Count of hit songs and other songs	
+</p>
+
 From figure 5 we can see that almost half of the songs are hit, and half of the songs are not considered hit, and we do not need oversampling.
 
 ## Model Exploration and Model Selection
@@ -227,9 +254,14 @@ The model will give an accuracy of 73.74%. In the next steps, we use different m
 
 The random forest model splits the nodes based on more important features and implicitly performs feature selection. In this step, we will try to remove some features with less importance and see if the model accuracy and running time are enhanced or not. Figure 6 shows the importance of each feature.
 
-```
-Figure 6 Feature Importance
-```
+<p align="center">  
+    <br>
+	<a href="#">
+        <img src="assets/Picture6.png"> 
+  </a>		
+    <br>
+	Figure 6: Feature Importance
+</p>
 
 It is observed that sections, mode, and key don’t have a lot of importance in the random forest model.
 
@@ -238,9 +270,15 @@ After removing these three features, the performance of the model is decreased b
 ### Principal Component  Analysis
 In this step, we will use dimension reduction methods and try to improve the performance of the model. First, we build all the principal components to be able to find a subset that will capture more than 90% of the total variance in the data.
 
-```
-Figure 7 : PCA
-```
+<p align="center">  
+    <br>
+	<a href="#">
+        <img src="assets/Picture7.png"> 
+  </a>		
+    <br>
+	Figure 7: PCA
+</p>
+
 From figure 7 , we can conclude that by using 7 principal components, 90% of the total variance is captured. Building the model with the 7 principal components, we get a Cross validation score of 6 8. 5 % for the model.
 
 This is 6% less than the accuracy that we had without dimension reduction, and as a result, we will not use dimension reduction before building our random forest model.
@@ -274,10 +312,15 @@ Table 3 : Random Search Parameters
 ```
 After running the model with the random parameters and with 3-fold cross-validation for each of them, we obtain the following result:
 
+<p align="center">  
+    <br>
+	<a href="#">
+        <img src="assets/Picture8.png"> 
+  </a>		
+    <br>
+	Figure 8: Random Search Results
+</p>
 
-```
-Figure 8 : Random Search Results
-```
 For each of the parameters, we choose 2 or 3 of the highest-scoring ones based on figure 8 and perform a grid search on them.
 
 ### Grid Search
@@ -357,9 +400,14 @@ It is the number of members of a class that the classifier identified correctly 
 
 ### ROC Curve
 
-```
-Figure 9 : ROC Curve
-```
+<p align="center">  
+    <br>
+	<a href="#">
+        <img src="assets/Picture9.png"> 
+  </a>		
+    <br>
+	Figure 9: ROC Curve
+</p>
 
 The ROC Curve plots the sensitivity based on 1-specificity for 100 different cutoffs. Here the area under the curve is 0. 81 which shows that the model is performing well. The random model has an area of 0. 5 and the best classifier has an area of 1.
 
