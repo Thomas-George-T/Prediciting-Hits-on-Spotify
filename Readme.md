@@ -1,6 +1,6 @@
-![GitHub](https://img.shields.io/github/license/Thomas-George-T/Prediciting-Hits-on-Spotify?style=flat)
-![GitHub top language](https://img.shields.io/github/languages/top/Thomas-George-T/Prediciting-Hits-on-Spotify?style=flat)
-![GitHub last commit](https://img.shields.io/github/last-commit/Thomas-George-T/Prediciting-Hits-on-Spotify?style=flat)
+![GitHub](https://img.shields.io/github/license/Thomas-George-T/Prediciting-Hits-on-Spotify.svg?style=flat)
+![GitHub top language](https://img.shields.io/github/languages/top/Thomas-George-T/Prediciting-Hits-on-Spotify.svg?style=flat)
+![GitHub last commit](https://img.shields.io/github/last-commit/Thomas-George-T/Prediciting-Hits-on-Spotify.svg?style=flat)
 ![ViewCount](https://views.whatilearened.today/views/github/Thomas-George-T/Prediciting-Hits-on-Spotify.svg?cache=remove)
 
 # Predicting Hits on Spotify
@@ -18,7 +18,7 @@
 
 ## Table of Contents
 
-- Problem Setting
+- [Problem Setting](#problem-setting)
 - Problem Definition
 - Data Source
 - Data Description
