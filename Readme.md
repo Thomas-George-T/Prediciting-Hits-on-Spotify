@@ -94,13 +94,32 @@ We determined the shape of the data to see how many records and columns are pres
 
 ### Data Statistics
 
-```
 In this part, we looked at the statistics of the variables.
-```
 
-```
+|                  |     danceability    |     energy          |     key             |     loudness        |     mode            |     speechiness     |     acousticness    |
+|------------------|---------------------|---------------------|---------------------|---------------------|---------------------|---------------------|---------------------|
+|     **Count**    |     41106.000000    |     41106.000000    |     41106.000000    |     41106.000000    |     41106.000000    |     41106.000000    |     41106.000000    |
+|     **Mean**     |     0.539695        |     0.579545        |     5.213594        |     -10.221525      |     0.693354        |     0.072960        |     0.364197        |
+|     **Std**      |     0.177821        |     0.252628        |     3.534977        |     5.311626        |     0.461107        |     0.086112        |     0.338913        |
+|     **min**      |     0.000000        |     0.000251        |     0.000000        |     -49.253000      |     0.000000        |     0.000000        |     0.000000        |
+|     **25%**      |     0.420000        |     0.396000        |     2.000000        |     -12.816000      |     0.000000        |     0.033700        |     0.039400        |
+|     **50%**      |     0.552000        |     0.601000        |     5.000000        |     -9.257000       |     1.000000        |     0.043400        |     0.258000        |
+|     **75%**      |     0.669000        |     0.787000        |     8.000000        |     -6.374250       |     1.000000        |     0.069800        |     0.676000        |
+|     **max**      |     0.988000        |     1.000000        |     11.000000       |     3.744000        |     1.000000        |     0.960000        |     0.996000        |
+
 From the statistics, we can see that almost all the values for the predictor time_signature are
-```
+
+|               |     instrumentalness    |     liveness    |     valence     |     tempo         |     duration_ms     |     Chorus_hit    |     sections      |     time_signature    |
+|---------------|-------------------------|-----------------|-----------------|-------------------|---------------------|-------------------|-------------------|-----------------------|
+|     **count** |     41106.000000        |     41106.00    |     41106.00    |     41106.00      |     4.110600e+04    |     41106.000     |     41106.00      |     41106.00          |
+|     **mean**  |     0.154416            |     0.201535    |     0.542440    |     119.338249    |     2.348776e+05    |     40.106041     |     10.475673     |     3.8936            |
+|     **std**   |     0.303530            |     0.172959    |     0.267329    |     29.098845     |     1.189674e+05    |     19.005515     |     4.871850      |     0.4230            |
+|     **min**   |     0.000000            |     0.013000    |     0.000000    |     0.000000      |     1.516800e+04    |     0.000000      |     0.000000      |     0.00              |
+|     **25%**   |     0.000000            |     0.094000    |     0.330000    |     97.397000     |     1.729278e+05    |     27.599792     |     8.000000      |     4.00              |
+|     **50%**   |     0.000120            |     0.132000    |     0.558000    |     117.565000    |     2.179070e+05    |     35.850795     |     10.000000     |     4.00              |
+|     **75%**   |     0.061250            |     0.261000    |     0.768000    |     136.494000    |     2.667730e+05    |     47.625615     |     12.000000     |     4.00              |
+|     **max**   |     1.000000            |     0.999000    |     0.996000    |     241.423000    |     4.170227e+06    |     433.182000    |     169.000000    |     5.00              |
+
 4. Hence, we decide to remove this predictor in this step.
 
 ### Data Distributions
@@ -170,50 +189,17 @@ The purpose of this project is to predict whether a song is classified as a hit 
 
 Next, we split the dataset into 8 0% training and 2 0% testing datasets. We use 3-Fold cross validation to choose the best models. The Scores of the models are shown in table 1.
 
-```
-Model Score
-```
-```
-Logistic Regression
-68. 1 %
-```
-```
-K-Nearest Neighbors
-```
-68. 4 %
+|                         Model                       |     Score    |
+|:---------------------------------------------------:|:------------:|
+|               Logistic Regression                   |     68.1%    |
+|               K-Nearest Neighbors                   |     68.4%    |
+|                  Decision Tree                      |     64.8%    |
+|     Support Vector Machine (Linear Kernel)          |     68.2%    |
+|       Support Vector Machine (RBF Kernel)           |     73.4%    |
+|                 Neural Network                      |     73.1%    |
+|                  Random Forest                      |     73.6%    |
+|                Gradient Boosting                    |     73.0%    |
 
-```
-Decision Tree
-64.8%
-```
-```
-Support Vector Machine
-(Linear Kernel)
-```
-```
-68. 2 %
-```
-```
-Support Vector Machine
-(RBF Kernel)
-```
-73. 4 %
-
-```
-Neural Network
-73 .1%
-```
-```
-Random Forest
-73. 6 %
-```
-```
-Gradient Boosting
-73. 0 %
-```
-```
-Table 1 : Model Scores
-```
 From table 1, the models are divided into two groups. Models that have a score lower than 69%, and Models with a score higher than 72%. Therefore, we choose 4 models that have a score of 72% and above for the next step. These models are Support Vector Machine (RBF Kernel), Neural Network, Random Forest, and Gradient Boosting.
 
 ## Implementation of Selected Models
@@ -222,25 +208,12 @@ From table 1, the models are divided into two groups. Models that have a score l
 
 In this step, we use cross-validation to observe the performance of the selected models. We use 5 - fold cross-validation, where the data is divided into 5 folds and 4 are used for training and the other one is used as the validation set. Each time 1 of the folds are used as the validation and therefore the model is fitted 5 times.
 
-```
-Model Score
-Support Vector Machine
-(RBF Kernel)
-```
-```
-71.88%
-```
-```
-Neural Network
-71.73%
-Random Forest
-74.00%
-Gradient Boosting
-71.299%
-```
-```
-Table 2 : 5 - Folds Cross-Validation Scores
-```
+|                       Model                      |      Score     |
+|:------------------------------------------------:|:--------------:|
+|     Support Vector Machine (RBF Kernel)          |      71.88%    |
+|                Neural Network                    |      71.73%    |
+|                Random Forest                     |      74.00%    |
+|              Gradient Boosting                   |     71.299%    |
 
 From the results of the cross-validation, we choose the **Random Forest Classifier** as our final model.
 
@@ -301,15 +274,14 @@ As there are a few parameters and each random forest model takes 9 seconds to ru
 
 The parameters for the random search are shown in the table:
 
-```
-Parameter values
-N_estimators [100,110,120,...,990,1000]
-Max_depth [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
-Min_sample_split [2,4,6,8,10,...,46,48,50]
-Min_sample_leaf [2,4,6,8,10,...,46,48,50]
-Bootstrap True, False
-Table 3 : Random Search Parameters
-```
+|         Parameter       |                     values                   |
+|:-----------------------:|:--------------------------------------------:|
+|       N_estimators      |            [100,110,120,…,990,1000]          |
+|         Max_depth       |     [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]    |
+|     Min_sample_split    |            [2,4,6,8,10,…,46,48,50]           |
+|      Min_sample_leaf    |            [2,4,6,8,10,…,46,48,50]           |
+|         Bootstrap       |                  True, False                 |
+
 After running the model with the random parameters and with 3-fold cross-validation for each of them, we obtain the following result:
 
 <p align="center">  
@@ -327,31 +299,28 @@ For each of the parameters, we choose 2 or 3 of the highest-scoring ones based o
 
 In this part, we built models with 3-fold cross-validation for all the combinations of the following parameters:
 
-```
-Parameter values
-N_estimators [400,900]
-Max_depth [12,13]
-Min_sample_split [2,12,28]
-Min_sample_leaf [28,34]
-Bootstrap False
-Max_features Auto, sqrt
-Table 4 : Grid Search Parameters
-```
+|         Parameter       |       values      |
+|:-----------------------:|:-----------------:|
+|       N_estimators      |      [400,900]    |
+|         Max_depth       |       [12,13]     |
+|     Min_sample_split    |      [2,12,28]    |
+|      Min_sample_leaf    |       [28,34]     |
+|         Bootstrap       |        False      |
+|       Max_features      |     Auto, sqrt    |
 
 A model is built for all the combinations and with 3-fold cross-validation, which leads to 148 total models being fitted.
 
 Out of all the models, a model with the parameters in table 6 has the best performance, and therefore we choose the following parameters for our random forest model:
 
-```
-Parameter value
-N_estimators 400
-Max_depth 13
-Min_sample_split 12
-Min_sample_leaf 28
-Bootstrap False
-Max_features sqrt
-Table 5 : Final Parameters of the Random Forest model
-```
+|         Parameter       |     value    |
+|:-----------------------:|:------------:|
+|       N_estimators      |      400     |
+|         Max_depth       |       13     |
+|     Min_sample_split    |       12     |
+|      Min_sample_leaf    |       28     |
+|         Bootstrap       |     False    |
+|       Max_features      |      sqrt    |
+
 After all the steps we can see that the final accuracy of the model is 73.0% which is 0.82% lower than the accuracy of the baseline model.
 
 _This shows that performing PCA and Hyperparameter tuning does not necessarily improve the model's performance and here we will proceed with our baseline model._
@@ -364,32 +333,21 @@ The accuracy of the predictions by the random forest classifier is 73.82% on the
 
 The confusion matrix of the random forest classifier is as follows:
 
-```
-Predicted Hit Predicted Non-Hit
-```
-```
-Actual Hit 2940 666
-```
-```
-Actual Non-Hit 1083 1992
-```
-```
-Table 6 : Confusion Matrix
-```
+|                           |     Predicted Hit    |     Predicted Non-Hit    |
+|:-------------------------:|:--------------------:|:------------------------:|
+|       **Actual Hit**      |          2940        |            666           |
+|     **Actual Non-Hit**    |          1083        |            1992          |
+
 The classification report for the test data and the predictions are:
 
-```
-Precision Recall f1-score Support
-```
+|                      |     Precision    |     Recall    |     f1-score    |     Support    |
+|:--------------------:|:----------------:|:-------------:|:---------------:|:--------------:|
+|      **Non-Hit**     |        0.75      |      0.64     |       0.69      |       3075     |
+|        **Hit**       |        0.73      |      0.81     |       0.77      |       3606     |
+|      **accuracy**    |                  |               |       0.74      |       6681     |
+|     **macro avg**    |        0.74      |      0.73     |       0.73      |       6681     |
+|     **weighted avg** |        0.74      |      0.74     |       0.73      |       6681     |
 
-```
-Non-Hit 0.75 0.64 0.69 3075
-Hit 0.73 0.81 0.77 3606
-accuracy 0.74 6681
-macro avg 0.74 0.73 0.73 6681
-weighted avg 0.74 0.74 0.73 6681
-Table 7 : Classification Report
-```
 ### Precision
 
 It is the number of correctly identified members of a class divided by all the times the model predicted that class. In the case of “hits”, the precision score would be the number of correctly identified “hits” divided by the total number of times the classifier predicted “hits,” rightly or wrongly. This value is around 73%, meaning that out of all the songs which are predicted as a hit song by the model, 73% of them are hit songs.
